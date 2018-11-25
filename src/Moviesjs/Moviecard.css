@@ -1,0 +1,21 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: rgba(33, 149, 243, 0.541);
+    padding: 10px;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.315);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    font-size: 16px;
+    margin: 2%;
+  }
+  .plus{
+    font-size: 250px;
+    color: white;
+  }
+  .ratingdiv{
+    font-size: 20px;
+    color: #2196F3;
+  }
