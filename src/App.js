@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Moviecard from './Moviesjs/Cardlist'
 import RatingFilter from './Moviesjs/RatingFilter'
+import Searchbymoviename from './Moviesjs/Searchbymoviename.js'
 const theCards = [
   {
     id: '0001',
@@ -123,10 +124,19 @@ class App extends Component {
     super(props)
     this.state = {
       chosedrate: 5,
-      movies: theCards ,
+      movies: theCards,
+      titleFilter: ''
     }
 
   }
+  getVisibleMovies() {
+    return this.state.movies.filter(
+      el =>
+        el.rate >= this.state.chosedrate &&
+        el.name.toLocaleLowerCase().includes(this.state.titleFilter.toLocaleLowerCase())
+      )
+  }
+
   addNewMovie(newMovie) {
     
       theCards.push(newMovie)
@@ -136,13 +146,19 @@ class App extends Component {
     return (
       <div className="App">
        <div className="headerstyling">
+      <Searchbymoviename NameFilter value={this.state.titleFilter}
+      onChange={(newNameFilter) => {
+        this.setState({
+          titleFilter: newNameFilter
+        })
+      }}/>
       
-      <div className="searchdiv"><input type="text" id="searchid" />
-      <input type="button" value="Search"  /></div>
     
       <RatingFilter count={this.state.chosedrate} rChange={(newr) => { this.setState({ chosedrate: newr})}} /> 
       </div>
-      <Moviecard movies={theCards.filter(el => el.rate >= this.state.chosedrate)}
+      <Moviecard  movies={
+                this.getVisibleMovies()
+              }
       
       onAddMovie={(newMovie) => this.addNewMovie(newMovie)} />
 
