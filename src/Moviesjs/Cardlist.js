@@ -1,6 +1,7 @@
 import React from 'react'
 import Moviecard from './Moviecard'
 import './Moviecard.css'
+import LoaderHoc from './LoaderHOC'
 const Cardlist = ({movies, onAddMovie}) => (
      <div className="grid-container">
         {
@@ -20,4 +21,4 @@ const Cardlist = ({movies, onAddMovie}) => (
       </div>
 )
 
-export default Cardlist 
+export default LoaderHoc(Cardlist);

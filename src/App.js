@@ -3,6 +3,7 @@ import './App.css';
 import Moviecard from './Moviesjs/Cardlist'
 import RatingFilter from './Moviesjs/RatingFilter'
 import Searchbymoviename from './Moviesjs/Searchbymoviename.js'
+
 const theCards = [
   {
     id: '0001',

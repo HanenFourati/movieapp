@@ -10,7 +10,6 @@ const Searchbymoviename = ({value = '', onChange = () => {}}) => (
                 onChange(event.target.value)
             }}
             />
-        <input type="button" value="Search" />
       </div>
 )
 
